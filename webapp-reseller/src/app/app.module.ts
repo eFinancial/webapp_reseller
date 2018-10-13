@@ -8,7 +8,7 @@ import {MatButtonModule} from "@angular/material";
 import {MatDialogModule } from "@angular/material";
 import {MatTooltipModule, MatToolbarModule} from "@angular/material";
 import {MatDialogRef} from "@angular/material";
-
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import {MatDialogRef} from "@angular/material";
     MatDialogModule,
     MatTooltipModule,
     MatToolbarModule,
-
+    MatTableModule
 
   ],
   providers: [],

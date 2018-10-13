@@ -3,18 +3,31 @@
 </head>
 <body>
 <mat-toolbar> Wallet</mat-toolbar>
-<mat-card class="invoice" *ngFor="let invoiceElement of invoice">
-  <div class="invoiceElement">
-    <div class="ele">{{invoiceElement.hash}}</div>
+<div >
+  <mat-card class="headerCart">
+    <div id="myHeader">
+      <div class="headerHash">Hashcode</div>
+      <div class="headerElem">Seller</div>
+      <div class="headerElem">Date</div>
+      <div class="headerElem">Total Costs</div>
+      <div class="headerElem"></div>
+    </div>
+  </mat-card>
+  <mat-card class="invoice" *ngFor="let invoiceElement of invoice">
+    <div class="invoiceElement">
+      <div class="eleHash">{{invoiceElement.hash}}</div>
 
-    <div class="ele">{{invoiceElement.invoice.seller.name}}</div>
-    <div class="ele">{{getDate(invoiceElement)}}</div>
-    <div class="ele">{{invoiceElement.invoice.totalCostBrutto}}€</div>
+      <div class="ele">{{invoiceElement.invoice.seller.name}}</div>
+      <div class="ele">{{getDate(invoiceElement)}}</div>
+      <div class="ele">{{invoiceElement.invoice.totalCostBrutto}}€</div>
 
-    <button mat-raised-button matTooltip="Rechnung anzeigen und downloaden" (click)="openDialog(invoiceElement)">Öffne Quittung</button>
+      <button class="ele" mat-raised-button matTooltip="Rechnung anzeigen und downloaden"
+              (click)="openDialog(invoiceElement)">Öffne
+        Quittung
+      </button>
 
-  </div>
-</mat-card>
-
+    </div>
+  </mat-card>
+</div>
 </body>
 </html>

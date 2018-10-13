@@ -1,11 +1,40 @@
-div{
+.invoiceElement {
   display: flex;
-}
-.invoiceElement{
-  display:flex;
 
 }
-.ele{
-display:flex;
-  flex-grow: 0.3;
+.invoice.mat-card{
+  margin: 5px 0;
+}
+.ele {
+  display: flex;
+  flex-grow: 1;
+  width: 25%;
+}
+.eleHash {
+  display: flex;
+  flex-grow: 2;
+  width: 25%;
+}
+.headerHash {
+  display: flex;
+  flex-grow: 2;
+  width: 25%;
+}
+.headerElem {
+  display: flex;
+  flex-grow: 1;
+  width: 25%;
+}
+.headerCart {
+  margin-top: 15px;
+  background: beige;
+}
+
+mat-toolbar{
+  background: linear-gradient(to right,#5FAD56, lightgreen);
+  color: white;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+#myHeader {
+  display: flex;
 }
