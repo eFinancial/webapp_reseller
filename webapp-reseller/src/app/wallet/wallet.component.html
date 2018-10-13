@@ -3,29 +3,15 @@
 </head>
 <body>
 <h1> Wallet</h1>
-<mat-card class="invoice">
-  <div *ngFor="let invoiceElement of invoice">
+<mat-card class="invoice" *ngFor="let invoiceElement of invoice">
+  <div class="invoiceElement">
     <div>{{invoiceElement.invoice.hash}}</div>
-    <div>{{invoiceElement.invoice.billNo}}</div>
-    <div>{{invoiceElement.invoice.seller.name}}</div>
-    <div>{{invoiceElement.invoice.seller.address.street}}</div>
-    <div>{{invoiceElement.invoice.seller.address.city}}</div>
-    <div>{{invoiceElement.invoice.seller.address.zip}}</div>
-    <div>{{invoiceElement.invoice.date}}</div>
-    <div>{{invoiceElement.invoice.totalCostBrutto}}</div>
-    <div>{{invoiceElement.invoice.totalCostNetto}}</div>
-    <div>{{invoiceElement.invoice.tax}}</div>
-    <div class="products">
-      <div *ngFor="let product of invoiceElement.invoice.products">
-        <div class="product">
-          <div>{{product.name}}</div>
-          <div>{{product.count}}</div>
-          <div>{{product.itemPrice}}</div>
-        </div>
-        <button mat-raised-button (click)="openDialog()">Pick one</button>
 
-      </div>
-    </div>
+    <div>{{invoiceElement.invoice.seller.name}}</div>
+
+    <div>{{invoiceElement.invoice.totalCostBrutto}}</div>
+
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
 
   </div>
 </mat-card>

@@ -9,11 +9,12 @@ import {MatDialogModule } from "@angular/material";
 import {MatDialogRef} from "@angular/material";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     WalletComponent,
-    WalletDialogComponent
+    WalletDialogComponent,
 
   ],
   imports: [
