@@ -1,6 +1,6 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
-import {  ElementRef ,ViewChild} from '@angular/core';
+import {ElementRef, ViewChild} from '@angular/core';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -40,6 +40,7 @@ export interface Address {
   city: string;
 
 }
+
 const invoiceData: InvoiceData = {
   hash: "afee217000",
   invoice: {
@@ -79,6 +80,45 @@ const invoiceData: InvoiceData = {
     ]
   }
 };
+const invoiceData1: InvoiceData = {
+  hash: "afee217dsa000",
+  invoice: {
+    date: new Date().toISOString(),
+    billNo: 1,
+    totalCostBrutto: 20,
+    totalCostNetto: 114,
+    customerPaid: 200,
+    tax: 10,
+    seller: {
+      name: "lidl",
+      ustIdNr: "DE10103542100",
+      address: {
+        street: "Straße 14",
+        zip: "77654",
+        city: "Offenburg"
+      },
+      storeID: "442281",
+      checkoutLane: 1
+    },
+    products: [
+      {
+        name: "Banenen",
+        count: 5,
+        itemPrice: 1.75
+      },
+      {
+        name: "Stuhl",
+        count: 1,
+        itemPrice: 75
+      },
+      {
+        name: "Nutella",
+        count: 2,
+        itemPrice: 2.05
+      }
+    ]
+  }
+};
 
 @Component({
   selector: 'app-wallet',
@@ -88,17 +128,29 @@ const invoiceData: InvoiceData = {
 export class WalletComponent implements OnInit {
 
 
-  invoice: InvoiceData[] = [invoiceData];
+  invoice: InvoiceData[] = [invoiceData, invoiceData1];
 
-  openDialog(): void {
+  openDialog(inV: InvoiceData): void {
     const dialogRef = this.dialog.open(WalletDialogComponent, {
-      width: '1500px',
-      data: {name: invoiceData.invoice.tax}
+      width: '1200px',
+      data: inV
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  getDate(invoiceData: InvoiceData) {
+    let date = new Date(invoiceData.invoice.date);
+    let month = String(date.getMonth() + 1);
+    let day = String(date.getDate());
+    const year = String(date.getFullYear());
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return day + "." + month + "." + year;
   }
 
 
@@ -119,8 +171,9 @@ export class WalletDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<WalletDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: InvoiceData) {
-    this.data = invoiceData;
+    this.data = data;
   }
+
   getDate() {
     let date = new Date(invoiceData.invoice.date);
     let month = String(date.getMonth() + 1);
@@ -144,19 +197,19 @@ export class WalletDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  public captureScreen()
-  {
-    var data = document.getElementById('contentToConvert');
+
+  public captureScreen() {
+    let data = document.getElementById('contentToConvert');
     html2canvas(data).then(canvas => {
 // Few necessary setting options
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
+      let imgWidth = 208;
+      let pageHeight = 295;
+      let imgHeight = canvas.height * imgWidth / canvas.width;
+      let heightLeft = imgHeight;
 
       const contentDataURL = canvas.toDataURL('image/png')
       let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
-      var position = 0;
+      let position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
       pdf.save('MYPdf.pdf'); // Generated PDF
     });

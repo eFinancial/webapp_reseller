@@ -6,6 +6,7 @@ import {WalletComponent, WalletDialogComponent} from './wallet/wallet.component'
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from "@angular/material";
 import {MatDialogModule } from "@angular/material";
+import {MatTooltipModule, MatToolbarModule} from "@angular/material";
 import {MatDialogRef} from "@angular/material";
 
 
@@ -23,6 +24,8 @@ import {MatDialogRef} from "@angular/material";
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
+    MatTooltipModule,
+    MatToolbarModule,
 
 
   ],
