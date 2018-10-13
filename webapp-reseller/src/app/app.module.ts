@@ -9,7 +9,7 @@ import {MatDialogModule } from "@angular/material";
 import {MatTooltipModule, MatToolbarModule} from "@angular/material";
 import {MatDialogRef} from "@angular/material";
 import {MatTableModule} from '@angular/material/table';
-
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import {MatTableModule} from '@angular/material/table';
     MatDialogModule,
     MatTooltipModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
 
   ],
   providers: [],

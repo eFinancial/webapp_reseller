@@ -3,6 +3,7 @@ import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import {ElementRef, ViewChild} from '@angular/core';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import {HttpClient} from "@angular/common/http";
 
 export interface InvoiceData {
   invoice: Invoice;
@@ -127,8 +128,8 @@ const invoiceData1: InvoiceData = {
 })
 export class WalletComponent implements OnInit {
 
-
-  invoice: InvoiceData[] = [invoiceData, invoiceData1];
+  backendURL = "https://efi-fallback.herokuapp.com/tam/efi/load";
+  invoice: InvoiceData[] = [];
 
   openDialog(inV: InvoiceData): void {
     const dialogRef = this.dialog.open(WalletDialogComponent, {
@@ -154,10 +155,13 @@ export class WalletComponent implements OnInit {
   }
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,private httpCLient:HttpClient) {
   }
 
   ngOnInit() {
+    this.httpCLient.get(this.backendURL).subscribe((invoices: InvoiceData[]) => {
+      this.invoice = invoices;
+    });
   }
 
 }
