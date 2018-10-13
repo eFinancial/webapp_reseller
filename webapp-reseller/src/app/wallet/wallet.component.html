@@ -9,9 +9,9 @@
 
     <div class="ele">{{invoiceElement.invoice.seller.name}}</div>
     <div class="ele">{{getDate(invoiceElement)}}</div>
-    <div class="ele">{{invoiceElement.invoice.totalCostBrutto}}</div>
+    <div class="ele">{{invoiceElement.invoice.totalCostBrutto}}€</div>
 
-    <button mat-raised-button matTooltip="Rechnung anziegen und Downloaden" (click)="openDialog(invoiceElement)">Öffne Quittung</button>
+    <button mat-raised-button matTooltip="Rechnung anzeigen und downloaden" (click)="openDialog(invoiceElement)">Öffne Quittung</button>
 
   </div>
 </mat-card>
