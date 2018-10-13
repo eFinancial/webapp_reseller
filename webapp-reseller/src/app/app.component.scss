@@ -1,0 +1,110 @@
+.mat-dialog-content {
+  .notice {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .invoice {
+    border: 1px dashed gray;
+    padding: 5px 20px;
+    height: auto;
+    width: 100%;
+  }
+  .invoice .title {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .invoice .title span {
+    margin: 0 10px;
+  }
+  .invoice .address {
+    text-align: center;
+  }
+  .invoice .taxID {
+    text-align: center;
+    margin: 20px 0 10px 0;
+  }
+  .invoice .taxID span {
+    font-weight: bold;
+  }
+  .invoice .products {
+    margin: 15px 25px;
+  }
+  .invoice .products .singleProduct {
+    margin: 5px 0;
+  }
+  .invoice .products .singleProduct .itemData {
+    display: flex;
+    width: 100%;
+  }
+  .invoice .products .singleProduct .itemData .price {
+    font-weight: bold;
+    margin-left: auto;
+  }
+  .invoice .products .singleProduct .count {
+    margin: 5px 40px;
+  }
+  .invoice hr {
+    margin: 5px 25px;
+  }
+  .invoice .product-separator {
+    border-top: 1px dashed gray;
+  }
+  .invoice .summary-separator {
+    border: 1px dashed gray;
+  }
+  .invoice .sum-wrapper {
+    margin: 5px 25px;
+    display: flex;
+  }
+  .invoice .sum-wrapper .total-price {
+    font-weight: bold;
+    margin-left: auto;
+  }
+  .invoice .sum-wrapper .total-price span {
+    margin-right: 25px;
+  }
+  .invoice .customer-payment,  .invoice .customer-cashback {
+    margin: 5px 25px;
+    display: flex;
+  }
+  .invoice .customer-payment .money-given,  .invoice .customer-cashback .money-given,  .invoice .customer-payment .money-back,  .invoice .customer-cashback .money-back {
+    margin-left: auto;
+  }
+  .invoice .customer-payment span,  .invoice .customer-cashback span {
+    margin-right: 25px;
+  }
+  .invoice .flexColumns {
+    margin: 20px 25px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .invoice .flexColumns .flexColumnTax,  .invoice .flexColumns .flexColumnNetto,  .invoice .flexColumns .flexColumnTax2,  .invoice .flexColumns .flexColumnBrutto,  .invoice .flexColumns .date-info,  .invoice .flexColumns .time-info,  .invoice .flexColumns .invoice-info {
+    flex: 1 1 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .invoice .flexColumns .flexColumnTax {
+    flex-grow: 2;
+  }
+  .invoice .flexColumns .flexColumnNetto,  .invoice .flexColumns .flexColumnTax2,  .invoice .flexColumns .flexColumnBrutto {
+    flex-grow: 1;
+  }
+  .invoice .flexColumns .flexColumnTax2,  .invoice .flexColumns .flexColumnBrutto {
+    text-align: center;
+  }
+  .invoice .flexColumns .flexColumnBrutto {
+    text-align: right;
+  }
+  .invoice .flexColumns .invoice-info {
+    text-align: right;
+  }
+  .invoice .footer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

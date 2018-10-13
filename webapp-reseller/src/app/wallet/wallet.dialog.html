@@ -1,0 +1,153 @@
+<div mat-dialog-content>
+  <div class="notice">
+    Rechnung
+  </div>
+  <div class="invoice">
+    <div class="invoice-header">
+      <div class="title">
+        <span>* * * *</span>
+        {{data.invoice.seller.name}}
+        <span>* * * *</span>
+      </div>
+      <div class="address">
+        <span>{{data.invoice.seller.address.street}}</span><br>
+        <span>{{data.invoice.seller.address.zip}}</span>
+        <span>{{data.invoice.seller.address.city}}</span>
+      </div>
+      <div class="taxID">
+        UST-ID_NR: <span>{{data.invoice.seller.ustIdNr}}</span>
+      </div>
+    </div>
+    <div class="products">
+      <div *ngFor="let product of data.invoice.products">
+        <div class="singleProduct">
+          <div class="itemData">
+            <div class="name">
+              {{product.name}}
+            </div>
+            <div class="price">
+              {{(product.count*product.itemPrice).toFixed(2)}}
+            </div>
+          </div>
+          <div *ngIf="product.count > 1" class="count">
+            {{product.count}} x {{product.itemPrice.toFixed(2)}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="product-separator">
+    <div class="sum-wrapper">
+      <div class="sum">
+        SUMME
+      </div>
+      <div class="total-price">
+        <span>EUR</span>{{data.invoice.totalCostBrutto.toFixed(2)}}
+      </div>
+    </div>
+    <hr class="summary-separator">
+    <div class="customer-payment">
+      <div class="given">
+        Geg.
+      </div>
+      <div class="money-given">
+        <span>EUR</span>{{data.invoice.customerPaid.toFixed(2)}}
+      </div>
+    </div>
+    <div class="customer-cashback">
+      <div class="back">
+        Rückgeld
+      </div>
+      <div class="money-back">
+        <span>EUR</span>{{(data.invoice.customerPaid - data.invoice.totalCostBrutto).toFixed(2)}}
+      </div>
+    </div>
+    <div class="flexColumns">
+      <div class="flexColumnTax">
+        <div>
+          Steuer &sect;
+        </div>
+        <div>
+          D-19,0 &sect;
+        </div>
+        <div>
+          Gesamtbetr.
+        </div>
+      </div>
+
+      <div class="flexColumnNetto">
+        <div>
+          Netto
+        </div>
+        <div>
+          {{data.invoice.totalCostNetto.toFixed(2)}}
+        </div>
+        <div>
+          {{data.invoice.totalCostNetto.toFixed(2)}}
+        </div>
+      </div>
+
+      <div class="flexColumnTax2">
+        <div>
+          Steuer
+        </div>
+        <div>
+          {{(data.invoice.totalCostBrutto * 0.19).toFixed(2)}}
+        </div>
+        <div>
+          {{(data.invoice.totalCostBrutto * 0.19).toFixed(2)}}
+        </div>
+      </div>
+
+      <div class="flexColumnBrutto">
+        <div>
+          Brutto
+        </div>
+        <div>
+          {{(data.invoice.totalCostBrutto).toFixed(2)}}
+        </div>
+        <div>
+          {{(data.invoice.totalCostBrutto).toFixed(2)}}
+        </div>
+      </div>
+    </div>
+    <div class="flexColumns">
+      <div class="date-info">
+        <div>
+          {{getDate()}}
+        </div>
+        <div>
+          Markt: {{data.invoice.seller.storeID}}
+        </div>
+      </div>
+
+      <div class="time-info">
+        <div>
+          {{getTime()}}
+        </div>
+        <div>
+          Kasse {{data.invoice.seller.checkoutLane}}
+        </div>
+      </div>
+
+      <div class="invoice-info">
+        <div>
+          Bon-Nr. {{data.invoice.billNo}}
+        </div>
+        <div>
+          Bed. AKWEI22
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div>
+        * * * *
+      </div>
+      <div>
+        VIELEN DANK FÜR IHREN EINKAUF
+      </div>
+      <div>
+        * * * *
+      </div>
+    </div>
+  </div>
+</div>
