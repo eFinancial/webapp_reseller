@@ -1,27 +1,41 @@
-<mat-toolbar> Wallet</mat-toolbar>
-<div >
-  <mat-card class="headerCart">
-    <div id="myHeader">
-      <div class="headerHash">Hashcode</div>
-      <div class="headerElem">Seller</div>
-      <div class="headerElem">Date</div>
-      <div class="headerElem">Total Costs</div>
-      <div class="headerElem"></div>
+<div class="page-wrapper">
+  <mat-toolbar>
+    <div class="logo">
+      e<span>Fi</span>
     </div>
-  </mat-card>
-  <mat-card class="invoice" *ngFor="let invoiceElement of invoice">
-    <div class="invoiceElement">
-      <div class="eleHash">{{invoiceElement.hash}}</div>
-
-      <div class="ele">{{invoiceElement.invoice.seller.name}}</div>
-      <div class="ele">{{getDate(invoiceElement)}}</div>
-      <div class="ele">{{invoiceElement.invoice.totalCostBrutto}}€</div>
-
-      <button class="ele" mat-raised-button matTooltip="Rechnung anzeigen und downloaden"
-              (click)="openDialog(invoiceElement)">Rechnung
-      </button>
-
+    <div class="title">
+      Wallet
     </div>
-  </mat-card>
+    <div class="hash">Wilkommen, <span>99e7fe5e3f671414ccaf55854c3279dc</span></div>
+  </mat-toolbar>
+  <div class="view-wrapper">
+    <div >
+      <mat-card class="headerCart">
+        <div id="myHeader">
+          <div class="headerHash">Hashcode</div>
+          <div class="headerElem">Seller</div>
+          <div class="headerElem">Date</div>
+          <div class="headerElem">Total Costs</div>
+          <div class="headerElem"></div>
+        </div>
+      </mat-card>
+      <div class="card-wrapper" *ngFor="let invoiceElement of invoice">
+        <mat-card class="invoice" >
+          <div class="invoiceElement">
+            <div class="eleHash">99e7fe5e3f671414ccaf55854c3279dc</div>
+
+            <div class="ele">{{invoiceElement.invoice.seller.name}}</div>
+            <div class="ele">{{getDate(invoiceElement)}}</div>
+            <div class="ele">{{invoiceElement.invoice.totalCostBrutto}}€</div>
+
+            <button class="ele button" mat-raised-button matTooltip="Rechnung anzeigen und downloaden"
+                    (click)="openDialog(invoiceElement)">Rechnung
+            </button>
+
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
 </div>
-

@@ -1,0 +1,123 @@
+
+
+$color-green-light: #5FAD56;
+$color-green-dark: #4D9078;
+$color-yellow: #F2C14F;
+$color-orange: #F78154;
+ .page-wrapper {
+   mat-toolbar{
+     width: 105vw;
+     margin: -15px 0 0 -15px;
+     height: 80px;
+     background: linear-gradient(to right,$color-green-dark, $color-green-light);
+     color: white;
+     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+
+     .logo {
+       font-family: 'Lato', sans-serif !important;
+       width: 100px;
+       height: auto;
+       text-align: center;
+       font-size: 60px;
+       color: $color-yellow;
+       font-style: italic;
+       span {
+         font-weight: bold;
+         color: $color-orange;
+       }
+     }
+
+     .title {
+       font-family: 'Lato', sans-serif !important;
+       margin-left: 15px;
+       margin-top: 5px;
+       font-size: 30px;
+       font-style: italic;
+     }
+
+     .hash {
+       position: absolute;
+       right: 0;
+       top: 32px;
+       margin-right: 20px;
+       font-size: 20px;
+
+       span {
+         font-style: italic;
+       }
+     }
+   }
+   .view-wrapper {
+     padding: 0 220px;
+     .headerCart {
+       color: $color-green-dark;
+       margin-top: 15px;
+       margin-bottom: 25px;
+       background: white;
+       box-shadow: none !important;
+       border: 1px solid $color-green-light;
+       font-family: 'Lato', sans-serif !important;
+
+       #myHeader {
+         display: flex;
+       }
+
+       .headerHash {
+         display: flex;
+         flex-grow: 2;
+         width: 25%;
+       }
+       .headerElem {
+         display: flex;
+         flex-grow: 1;
+         width: 25%;
+         margin-left: 220px;
+       }
+     }
+
+     .card-wrapper {
+       margin: 15px 0;
+
+       .mat-card {
+         height: 35px;       }
+     }
+     .invoice {
+       font-family: 'Lato', sans-serif !important;
+       .invoiceElement {
+         display: flex;
+         margin: 15px 0;
+         height: 50px !important;
+         div.ele {
+           margin-top: 8px;
+         }
+         .ele {
+           font-family: 'Lato', sans-serif !important;
+           box-shadow: none;
+           display: flex;
+           flex-grow: 1;
+           width: 25%;
+         }
+
+         .button {
+           border-radius: 25px;
+           text-align: center;
+           background-color: $color-orange;
+           color: white;
+           width: 55px;
+         }
+         .eleHash {
+           display: flex;
+           flex-grow: 2;
+           margin-top: 8px;
+           width: 25%;
+         }
+       }
+     }
+
+     .invoice.mat-card{
+       margin: 5px 0;
+     }
+   }
+
+
+ }
