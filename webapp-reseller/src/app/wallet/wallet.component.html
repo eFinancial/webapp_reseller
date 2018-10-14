@@ -10,7 +10,7 @@
     </div>
   </mat-card>
   <mat-card class="invoice" *ngFor="let invoiceElement of invoice">
-    <div class="invoiceElement">
+    <div class="invoiceElement" [(ngModel)]="pageSize">
       <div class="eleHash">{{invoiceElement.hash}}</div>
 
       <div class="ele">{{invoiceElement.invoice.seller.name}}</div>
@@ -20,6 +20,11 @@
       <button class="ele" mat-raised-button matTooltip="Rechnung anzeigen und downloaden"
               (click)="openDialog(invoiceElement)">Rechnung
       </button>
+      <mat-paginator [length]="length"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="pageEvent = $event">
+      </mat-paginator>
 
     </div>
   </mat-card>
