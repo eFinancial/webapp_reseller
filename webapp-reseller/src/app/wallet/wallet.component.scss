@@ -79,16 +79,21 @@ $color-orange: #F78154;
        margin: 15px 0;
 
        .mat-card {
-         height: 35px;       }
+         height: 70px;
+         padding: 10px;
+       }
      }
      .invoice {
        font-family: 'Lato', sans-serif !important;
+       border: 1px dashed $color-green-light;
+       box-shadow: none;
        .invoiceElement {
          display: flex;
          margin: 15px 0;
          height: 50px !important;
          div.ele {
-           margin-top: 8px;
+           margin-top: 12px;
+
          }
          .ele {
            font-family: 'Lato', sans-serif !important;
@@ -103,12 +108,17 @@ $color-orange: #F78154;
            text-align: center;
            background-color: $color-orange;
            color: white;
+           height: 45px;
            width: 55px;
          }
          .eleHash {
            display: flex;
            flex-grow: 2;
-           margin-top: 8px;
+           color: $color-green-dark;
+           margin-top: 14px;
+           font-size: 14px;
+           font-style: italic;
+           margin-left: 5px;
            width: 25%;
          }
        }
