@@ -133,7 +133,7 @@ export class WalletComponent implements OnInit {
 
   openDialog(inV: InvoiceData): void {
     const dialogRef = this.dialog.open(WalletDialogComponent, {
-      width: '1200px',
+      width: '1500px',
       data: inV
     });
 
